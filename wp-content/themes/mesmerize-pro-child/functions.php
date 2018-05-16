@@ -1,4 +1,12 @@
 <?php
+
+add_filter( 'upload_mimes', 'allow_svg_upload' );
+function allow_svg_upload( $m ) {
+    $m['svg'] = 'image/svg+xml';
+    $m['svgz'] = 'image/svg+xml';
+    return $m;
+}
+
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;
 
