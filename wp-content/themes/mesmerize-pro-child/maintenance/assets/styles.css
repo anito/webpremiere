@@ -131,6 +131,12 @@ h2 { color: rgba(255,255,255,.5); }
     padding: 0;
     vertical-align: middle;
 }
+.footer .logo {
+    height: 29px;
+    margin: 10px 6px 15px;
+    padding: 0;
+    vertical-align: middle;
+}
 @media (min-width: 500px) {
     .timer { font-size: 80px; }
     .social-links { margin-bottom: 110px; }
