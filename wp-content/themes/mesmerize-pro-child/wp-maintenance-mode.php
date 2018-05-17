@@ -96,7 +96,7 @@ $social_prefix = 'social_';
 <footer class="footer">
     <div class="footer__bg_copyright"><a href="https://www.flickr.com/photos/110044247@N08/32028811530" target="_blank"><span class="title h3">Melancholia </span><span class="author h2">by Alicja Zmyslowska</span></a></div>
     <div class="footer__content">
-        <?php echo 'powered'; ?> <a href="https://webpremiere.de/" target="_blank"><img class="logo" src="https://webpremiere.de/files/public-docs/logos/webpremiere-logo-3.svg" alt="webPremiere"></a>
+        <?php echo 'powered'; ?> <a href="https://webpremiere.de/" target="_blank"><img class="logo" src="https://webpremiere.de/files/public-docs/logos/webpremiere-logo-5.svg" alt="webPremiere"></a>
     </div>
 </footer>
 

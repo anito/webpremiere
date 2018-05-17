@@ -30,11 +30,11 @@ wp-content/uploads/wc-logs/
 wp-content/debug.log
 wp-content/uploads/sucuri/
 wp-content/plugins/
-wp-content/themes/emblem/
-wp-content/themes/mesmerize-pro/
+wp-content/themes/*
+!wp-content/themes/*-child
+wp-content/themes/*-child/assets/
 wp-content/upgrade/
 wp-content/languages/
-wp-content/themes/emblem-child/assets/
 wp-content/languages/
 wp-content/failed_plugins/
 wp-content/nextgen-gallery/
