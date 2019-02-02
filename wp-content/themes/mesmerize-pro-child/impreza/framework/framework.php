@@ -6,10 +6,11 @@
  * Should be included in global context.
  */
 global $us_template_directory, $us_stylesheet_directory, $us_template_directory_uri, $us_stylesheet_directory_uri;
+$root = '/impreza';
 $us_template_directory = get_template_directory();
-$us_stylesheet_directory = get_stylesheet_directory();
+$us_stylesheet_directory = $us_template_directory = get_stylesheet_directory() . $root;
 $us_template_directory_uri = get_template_directory_uri();
-$us_stylesheet_directory_uri = get_stylesheet_directory_uri();
+$us_stylesheet_directory_uri = $us_template_directory_uri = get_stylesheet_directory_uri() . $root;
 
 if ( ! defined( 'US_THEMENAME' ) OR ! defined( 'US_THEMEVERSION' ) ) {
 	$us_theme = wp_get_theme();
