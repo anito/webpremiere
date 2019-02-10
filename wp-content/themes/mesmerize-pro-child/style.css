@@ -19,4 +19,9 @@ Updated: 2018-05-15 23:59:59
     vertical-align: middle;
     margin-bottom: 6px;
 }
+.fa, .fas, .fa-fas {
+    font-family: "fontawesome";
+    color: inherit;
+    font-style: normal;
+}
 
