@@ -41,7 +41,7 @@ $us_theme_supports = array(
 	),
 );
 
-require dirname( __FILE__ ) . '/framework/framework.php';
+//require dirname( __FILE__ ) . '/framework/framework.php';
 
 unset( $us_theme_supports );
 
