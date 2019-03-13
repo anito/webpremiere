@@ -13,4 +13,5 @@ img.logo-small {
 }
 .w-toplink {
     bottom: 80px;
+    border-radius: 50%;
 }
