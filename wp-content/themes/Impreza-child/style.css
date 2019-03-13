@@ -12,6 +12,9 @@ img.logo-small {
     vertical-align: bottom;
 }
 .w-toplink {
-    bottom: 80px;
+    bottom: -80px;
     border-radius: 50%;
+}
+.w-toplink.active {
+    bottom: 150px;
 }
