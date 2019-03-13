@@ -13,8 +13,11 @@ img.logo-small {
 }
 .w-toplink {
     bottom: -80px;
+    border: 1px solid;
+    color: #2222 !important;
     border-radius: 50%;
 }
 .w-toplink.active {
-    bottom: 150px;
+    bottom: 80px;
+    color: inherit !important;
 }
