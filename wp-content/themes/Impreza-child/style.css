@@ -11,3 +11,6 @@ Author URI: http://us-themes.com/
 img.logo-small {
     vertical-align: bottom;
 }
+.w-toplink {
+    bottom: 30px;
+}
