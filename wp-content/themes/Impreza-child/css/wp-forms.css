@@ -8,23 +8,32 @@ and open the template in the editor.
     Author     : axel
 */
 
-.wpforms-container input[type=radio]:checked:before,
-.wpforms-container input[type=radio]:before,
-.wpforms-container input[type=checkbox]:checked:before,
-.wpforms-container input[type=checkbox]:before,
-.wpforms-container input[type=radio]:checked:after,
-.wpforms-container input[type=radio]:after,
-.wpforms-container input[type=checkbox]:before,
-.wpforms-container input[type=checkbox]:after {
+.wpforms-form input[type=radio]:checked:before,
+.wpforms-form input[type=radio]:before,
+.wpforms-form input[type=checkbox]:checked:before,
+.wpforms-form input[type=checkbox]:before,
+.wpforms-form input[type=radio]:checked:after,
+.wpforms-form input[type=radio]:after,
+.wpforms-form input[type=checkbox]:before,
+.wpforms-form input[type=checkbox]:after {
 	display: none !important;
 }
-.wpforms-container input[type=radio] {
+.wpforms-form input[type=radio] {
 	-webkit-appearance: radio !important;
 }
 
-.wpforms-container input[type=checkbox] {
+.wpforms-form input[type=checkbox] {
 	-webkit-appearance: checkbox !important;
 }
-div.wpforms-container .wpforms-form input[type=radio] {
-	display: none !important;
+.wpforms-form input[type=radio] {
+	/*display: none !important;*/
+}
+.wpforms-form input[type=radio]:checked {
+    border: 2px solid #e01111;
+    background-color: #00f;
+    width: 14px;
+    height: 14px;
+    margin: 0 10px 0 3px;
+    display: inline-block;
+    vertical-align: baseline;
 }
