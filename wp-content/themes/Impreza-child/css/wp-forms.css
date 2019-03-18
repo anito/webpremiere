@@ -8,14 +8,6 @@ and open the template in the editor.
     Author     : axel
 */
 
-.wpforms-container-full input[type=radio] {
-	-webkit-appearance: radio !important;
-}
-
-.wpforms-container-full input[type=checkbox] {
-	-webkit-appearance: checkbox !important;
-}
-
 .wpforms-container-full input[type=radio],
 .wpforms-container-full input[type=radio]:checked:before,
 .wpforms-container-full input[type=radio]:before,
@@ -26,4 +18,11 @@ and open the template in the editor.
 .wpforms-container-full input[type=checkbox]:after:before,
 .wpforms-container-full input[type=checkbox]:after {
 	display: none !important;
+}
+.wpforms-container-full input[type=radio] {
+	-webkit-appearance: radio !important;
+}
+
+.wpforms-container-full input[type=checkbox] {
+	-webkit-appearance: checkbox !important;
 }
