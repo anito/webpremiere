@@ -16,6 +16,7 @@ and open the template in the editor.
 	-webkit-appearance: checkbox !important;
 }
 
+.wpforms-container input[type=radio],
 .wpforms-container input[type=radio]:checked:before,
 .wpforms-container input[type=radio]:before,
 .wpforms-container input[type=checkbox]:checked:before,
