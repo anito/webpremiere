@@ -15,7 +15,7 @@ and open the template in the editor.
 .wpforms-container-full input[type=checkbox]:before,
 .wpforms-container-full input[type=radio]:checked:after,
 .wpforms-container-full input[type=radio]:after,
-.wpforms-container-full input[type=checkbox]:after:before,
+.wpforms-container-full input[type=checkbox]:before,
 .wpforms-container-full input[type=checkbox]:after {
 	display: none !important;
 }
