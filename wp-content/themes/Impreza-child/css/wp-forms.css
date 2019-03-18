@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18.03.2019, 15:29:02
+    Author     : axel
+*/
+
+.wpforms-container input[type=radio] {
+	-webkit-appearance: radio !important;
+}
+
+.wpforms-container input[type=checkbox] {
+	-webkit-appearance: checkbox !important;
+}
+
+.wpforms-container input[type=radio]:checked:before,
+.wpforms-container input[type=radio]:before,
+.wpforms-container input[type=checkbox]:checked:before,
+.wpforms-container input[type=checkbox]:before,
+.wpforms-container input[type=radio]:checked:after,
+.wpforms-container input[type=radio]:after,
+.wpforms-container input[type=checkbox]:after:before,
+.wpforms-container input[type=checkbox]:after {
+	display: none !important;
+}
