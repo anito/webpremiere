@@ -8,22 +8,22 @@ and open the template in the editor.
     Author     : axel
 */
 
-.wpforms-container input[type=radio] {
+.wpforms-container-full input[type=radio] {
 	-webkit-appearance: radio !important;
 }
 
-.wpforms-container input[type=checkbox] {
+.wpforms-container-full input[type=checkbox] {
 	-webkit-appearance: checkbox !important;
 }
 
-.wpforms-container input[type=radio],
-.wpforms-container input[type=radio]:checked:before,
-.wpforms-container input[type=radio]:before,
-.wpforms-container input[type=checkbox]:checked:before,
-.wpforms-container input[type=checkbox]:before,
-.wpforms-container input[type=radio]:checked:after,
-.wpforms-container input[type=radio]:after,
-.wpforms-container input[type=checkbox]:after:before,
-.wpforms-container input[type=checkbox]:after {
+.wpforms-container-full input[type=radio],
+.wpforms-container-full input[type=radio]:checked:before,
+.wpforms-container-full input[type=radio]:before,
+.wpforms-container-full input[type=checkbox]:checked:before,
+.wpforms-container-full input[type=checkbox]:before,
+.wpforms-container-full input[type=radio]:checked:after,
+.wpforms-container-full input[type=radio]:after,
+.wpforms-container-full input[type=checkbox]:after:before,
+.wpforms-container-full input[type=checkbox]:after {
 	display: none !important;
 }
