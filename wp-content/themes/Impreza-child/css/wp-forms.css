@@ -42,9 +42,10 @@ and open the template in the editor.
     margin: 13px 0;
     background-color: #969ea3;
 }
-.wpforms-field-radio > label {
+.wpforms-field-radio > label, .wpforms-field-span {
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     font-size: 1.3em;
     line-height: 1.4;
+    display: inline-block;
 }
