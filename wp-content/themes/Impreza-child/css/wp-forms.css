@@ -39,13 +39,16 @@ and open the template in the editor.
     content: '';
     display: block;
     height: 1px;
-    margin: 13px 0;
+    margin: 25px 0;
     background-color: #969ea3;
 }
-.wpforms-field-radio > label, .wpforms-field-span {
+.wpforms-field-radio > label {
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     font-size: 1.3em;
     line-height: 1.4;
     display: inline-block;
+}
+.wpforms-field-name, .wpforms-field-email, .wpforms-field-phone, .wpforms-field-radio {
+    margin: 20px 0;
 }
