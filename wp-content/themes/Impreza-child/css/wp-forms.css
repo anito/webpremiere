@@ -35,3 +35,10 @@ and open the template in the editor.
 .wpforms-submit {
     margin-top: 20px;
 }
+.wpforms-field-divider:after {
+    content: '';
+    display: block;
+    height: 1px;
+    margin: 13px 0;
+    background-color: #969ea3;
+}
