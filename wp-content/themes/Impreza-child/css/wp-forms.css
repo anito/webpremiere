@@ -32,3 +32,6 @@ and open the template in the editor.
     margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
+.wpforms-submit {
+    margin-top: 20px;
+}
