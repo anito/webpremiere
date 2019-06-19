@@ -111,6 +111,9 @@ $social_prefix = 'social_';
                 <!-- /WP Bot -->
             </section>
             <div class="bot-error"><p></p></div>
+            
+            <?php } ?>
+            
         </div>
     </div>
     
@@ -121,7 +124,6 @@ $social_prefix = 'social_';
         </div>
     </footer>
     
-    <?php } ?>
     <script type='text/javascript'>
 			var wpmm_vars = {"ajax_url": "<?php echo admin_url('admin-ajax.php'); ?>"};
     </script>
