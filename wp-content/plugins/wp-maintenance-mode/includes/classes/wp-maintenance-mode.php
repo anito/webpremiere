@@ -601,7 +601,7 @@ if (!class_exists('WP_Maintenance_Mode')) {
 				}
 				if (!empty($this->plugin_settings['bot']['status']) && $this->plugin_settings['bot']['status'] == 1) {
 					$scripts['bot-async'] = WPMM_JS_URL . 'bot.async.js';
-					$scripts['bot'] = WPMM_JS_URL . 'bot' . WPMM_ASSETS_SUFFIX . '.js';
+//					$scripts['bot'] = WPMM_JS_URL . 'bot' . WPMM_ASSETS_SUFFIX . '.js';
 					add_action('wpmm_before_scripts', array($this, 'add_bot_extras'));
 				}
 				$scripts = apply_filters('wpmm_scripts', $scripts);
