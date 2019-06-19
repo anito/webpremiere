@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Impreza Child\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-19 13:13+0000\n"
-"PO-Revision-Date: 2019-06-19 13:16+0000\n"
+"PO-Revision-Date: 2019-06-19 13:24+0000\n"
 "Last-Translator: Axel Nitzschner <info@webpremiere.dev>\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.3.0; wp-5.2.2"
 
 #: wp-maintenance-mode.php:99
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s is proudly powered by %2$s"
 msgstr "%1$s stolz angetrieben von %2$s"
 
