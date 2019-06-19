@@ -58,7 +58,10 @@ h2 { color: rgba(255,255,255,.5); }
     max-width: 640px;
     padding: 0 20px;
 }
-.header { margin: auto 0 16px; }
+.header {
+    text-align: center;
+    margin: auto 0 16px;
+}
 .timer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -131,6 +134,9 @@ h2 { color: rgba(255,255,255,.5); }
     margin: -4px 0px 0px;
     padding: 0;
     vertical-align: middle;
+}
+.bot-container {
+    margin-bottom: 10%;
 }
 .hide {
     display: none;
