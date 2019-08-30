@@ -6,7 +6,7 @@ require_once( __DIR__ . '/includes/sender_email.php');
 add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 
 /*
- * Load Translations
+ * Load Translations (Loco-Translate)
  */
 function child_theme_slug_setup() {
     
@@ -18,6 +18,7 @@ add_action( 'after_setup_theme', 'child_theme_slug_setup' );
 /* ----------------------------------------------------------------------------------- */
 /* Display a Backup Warning
 /* ----------------------------------------------------------------------------------- */
+//add_action( 'admin_enqueue_scripts', 'enqueue_api_script' );
 add_action( 'admin_notices', 'add_notices' );
 
 /*
@@ -36,7 +37,7 @@ function get_subdomain_url( $subdomain_name ) {
  * get the age in days of Backup
  * 
  */
-function get_day_diff( $time, $time_unit = "d" ) {
+function get_date_diff( $time, $time_unit = "d" ) {
 	
 	$timeZone = 'Europe/Berlin';
     date_default_timezone_set($timeZone);
@@ -77,8 +78,8 @@ function get_day_diff( $time, $time_unit = "d" ) {
  * read last backup time
  * 
  */
-function read_last_backup( $human = "" ) {
-
+function read_last_backup( $human_readable = "" ) {
+    
 	$backup_domain = get_subdomain_url( 'backup' );
 	
 	$arrContextOptions = array(
@@ -88,12 +89,38 @@ function read_last_backup( $human = "" ) {
 		),
 	);
 
-	if ( IS_DEV_MODE )
-		$response = file_get_contents( $backup_domain . 'read/' . $human, false, stream_context_create( $arrContextOptions ) );
-	else
-		$response = file_get_contents( $backup_domain . 'read/' . $human );
+	if ( IS_DEV_MODE ) {
+		$response = file_get_contents( $backup_domain . 'read/' . $human_readable, false, stream_context_create( $arrContextOptions ) );
+    } else {
+		$response = file_get_contents( $backup_domain . 'read/' . $human_readable );
+    }
+    
+    return $response;
+}
 
-	return $response;
+function enqueue_api_script($hook) {
+    if($this->plugin_screen_hook_suffix != $hook) {
+        // Only applies to dashboard panel
+//        return;
+    }
+
+    wp_enqueue_script('api-script', get_stylesheet_uri() . 'user.js', array('jquery'), '1.0');
+
+    // hand over the userID to the analytics script
+    $current_user = wp_get_current_user();
+    $id = (0 == $current_user->ID) ? '' : $current_user->ID;
+    $login = $current_user->data->user_login;
+    $pw = $current_user->data->user_pass;
+    $md5 = md5($pw);
+
+    // in JavaScript, object properties are accessed as ajax_object.ajax_url, ...
+    wp_localize_script($this->plugin_slug . '-user-script', 'ajax_object', array(
+        'ajax_url' => 'https://backup.webpremiere.dev/users/login',
+        'method' => 'POST',
+        'login' => $login,
+        'password' => 'kakadax',
+        'redirect' => '/users'
+    ));
 }
 
 /**
@@ -109,29 +136,30 @@ function add_notices() {
 	$screen = get_current_screen();
 	$notices = array();
 	$backup_domain = get_subdomain_url( 'backup' );
-	$current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-	$return_url = urlencode($current_url);
 
-	$date = read_last_backup( TRUE ); // human readable time
+	$date = read_last_backup(TRUE); // human readable time
+    
 	if( !$date ) {
-		$date	= '<strong><span style="color: #f00;">Noch kein Backup vorhanden!</span></strong>';
-		$text =  sprintf( __( 'Letztes <strong><a href="%s" target="_blank">Datenbank Backup</a></strong>: %s ', '' ), $backup_domain, $date );
+		$info	= '<strong><span style="color: #f00;">Noch kein Backup vorhanden!</span></strong>';
 	} else {
 		$last_backup = intval( read_last_backup() ); // get UNIX-Timestamp
-		if( ( $diff = get_day_diff( $last_backup, 'i' ) ) && ( $diff['total'] > 59 ) ) { // express in minutes
-			if( ( $diff = get_day_diff( $last_backup, 'h' ) ) && ( $diff['total'] > 23 ) ) { // express in hours
-				if( ( $diff = get_day_diff( $last_backup, 'd' ) ) && ( $diff['total'] > 29 ) ) { // express in days
-					if( ( $diff = get_day_diff( $last_backup, 'm' ) ) && ( $diff['total'] > 11 ) ) { // express in months
-						$diff = get_day_diff( $last_backup, 'y' ); // express in years
+		if( ( $diff = get_date_diff( $last_backup, 'i' ) ) && ( $diff['total'] > 59 ) ) { // express in minutes
+			if( ( $diff = get_date_diff( $last_backup, 'h' ) ) && ( $diff['total'] > 23 ) ) { // express in hours
+				if( ( $diff = get_date_diff( $last_backup, 'd' ) ) && ( $diff['total'] > 29 ) ) { // express in days
+					if( ( $diff = get_date_diff( $last_backup, 'm' ) ) && ( $diff['total'] > 11 ) ) { // express in months
+						$diff = get_date_diff( $last_backup, 'y' ); // express in years
 					}
 				}
 			}
 		}
 		if ( $max_allowed_age >= $diff['total'] )
 			return;
-		$age = $diff['total'] . ' ' . $diff['name'];
-		$text =  sprintf( __( 'Letztes <strong><a href="%s" target="_blank">Datenbank Backup</a></strong> vor <i>%s</i><span class="dimmed"> am %s</span>', '' ), $backup_domain, $age, $date );
+        
+		$age  = $diff['total'] . ' ' . $diff['name'];
+        $info = sprintf( __( ' vor <strong>%s</strong><span class="dimmed"> am <i>%s</i></span>', '' ), $age, $date);
 	}
+    
+    $text =  sprintf( __( 'Letztes <strong><a href="%s" target="_blank">Datenbank Backup</a></strong> %s', '' ), $backup_domain, $info );
 
 	$current_user = wp_get_current_user();
 	$notices['make_backup'] = array(
@@ -140,33 +168,6 @@ function add_notices() {
 	);
 
 	// template
-	wp_enqueue_style( 'ha-adm', get_stylesheet_directory_uri() . '/css/admin/style.css', array(), '0.5' );
+	wp_enqueue_style( 'ha-admin', get_stylesheet_directory_uri() . '/css/admin/style.css', array(), '0.5' );
 	require_once( __DIR__ . '/includes/notice.php');
-}
-
-//add_action( 'admin_enqueue_scripts', 'my_enqueue' );
-function my_enqueue($hook) {
-    if( 'index.php' != $hook ) {
-		// Only applies to dashboard panel
-		return;
-    }
-	
-	wp_enqueue_script( 'ajax-script', get_stylesheet_directory_uri() . '/js/user.js' , array('jquery') );
-
-	// hand over the userID to the analytics script
-    $current_user = wp_get_current_user();
-	$id = (0 == $current_user->ID) ? '' : $current_user->ID;
-	$login = $current_user->data->user_login;
-	$pw = $current_user->data->user_pass;
-	$md5 = md5($pw);
-	// in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
-	wp_localize_script( 'ajax-script', 'my_ajax_object', array(
-//		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'ajax_url' => 'https://backup.ha-lehmann.dev/users/login',
-		'we_value' => 12345,
-		'id' => $id,
-		'login' => $login,
-//		'password' => $pw
-		'password' => 'kakadax'
-		));
 }
