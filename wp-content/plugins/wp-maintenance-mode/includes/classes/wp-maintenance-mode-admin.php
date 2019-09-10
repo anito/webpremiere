@@ -297,6 +297,7 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                         }
                         add_filter('safe_style_css', array($this, 'add_safe_style_css')); // add before we save
                         $_POST['options']['design']['text'] = wp_kses_post($_POST['options']['design']['text']);
+                        $_POST['options']['design']['credits'] = wp_kses_post($_POST['options']['design']['credits']);
                         remove_filter('safe_style_css', array($this, 'add_safe_style_css')); // remove after we save
 
                         if (!empty($_POST['options']['design']['text_color'])) {

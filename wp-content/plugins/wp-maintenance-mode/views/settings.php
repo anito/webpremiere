@@ -203,7 +203,7 @@
                                         <?php
                                         wp_editor(stripslashes($this->plugin_settings['design']['credits']), 'options_design_credits', array(
                                             'textarea_name' => 'options[design][credits]',
-                                            'textarea_rows' => 8,
+                                            'textarea_rows' => 2,
                                             'editor_class' => 'large-text',
                                             'media_buttons' => false,
                                             'wpautop' => false,
