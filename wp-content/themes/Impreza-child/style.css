@@ -14,6 +14,7 @@ Text Domain: us
  */
 .wpforms-form ul {
     list-style: none;
+    margin-left: 0;
 }
 
 
