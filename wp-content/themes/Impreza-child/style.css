@@ -8,6 +8,15 @@ Author URI: http://us-themes.com/
 Text Domain: us
 */
 
+/*
+ *  WP Form
+ *
+ */
+.wpforms-form ul {
+    list-style: none;
+}
+
+
 /*Add your own styles here:*/
 img.logo-small {
     vertical-align: bottom;
