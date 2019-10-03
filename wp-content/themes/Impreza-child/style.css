@@ -12,9 +12,37 @@ Text Domain: us
  *  WP Form
  *
  */
-.wpforms-form ul {
-    list-style: none;
-    margin-left: 0;
+ul.list-style-2 li {
+    position: relative;
+    padding-left: 31px;
+    margin-bottom: 8px;
+}
+ul[class*=list-style-] li:before {
+    position: absolute;
+    content: '';
+    display: block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    left: 3px;
+    top: 4px;
+    font-size: 14px;
+    color: #eaaa00;
+}
+ul.list-style-1 li:before {
+    content: "\f00c";
+}
+ul.list-style-2 li:before {
+    content: "\f058";
+}
+ul.list-style-3 li:before {
+    content: "\f138";
+}
+.wpforms-form li input[type=radio]{
+    -webkit-appearance: none;
 }
 
 
