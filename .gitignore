@@ -18,32 +18,19 @@ xcuserdata
 CVS
 
 /*
-!/wp-content/
-/wp-content/*
-
 !.gitignore
 !README.md
+!/wp-content/
+/wp-content/*
 
 # my child themes
 !/wp-content/themes
 /wp-content/themes/*
 !/wp-content/themes/*-child
-/wp-content/themes/*-child/footage
-/wp-content/themes/*-child/ignored-assets
-/wp-content/themes/*-child/common/languages/*.po~
-/wp-content/themes/*-child/common/languages/*.pot~
-
-# wp-touch child
-!/wp-content/wptouch-data
-/wp-content/wptouch-data/*
-!/wp-content/wptouch-data/themes
-/wp-content/wptouch-data/themes/*
-!/wp-content/wptouch-data/themes/*-child
+#/wp-content/themes/*-child/assets
+/wp-content/themes/*-child/scratchbook.*
 
 # my plugins
 !/wp-content/plugins
 /wp-content/plugins/*
 !/wp-content/plugins/wp-maintenance-mode
-!/wp-content/plugins/woocommerce-new-product
-!/wp-content/plugins/spine-app
-/wp-content/plugins/spine-app/assets/spine/node_modules
