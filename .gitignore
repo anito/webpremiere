@@ -33,4 +33,4 @@ CVS
 # my plugins
 !/wp-content/plugins
 /wp-content/plugins/*
-!/wp-content/plugins/wp-maintenance-mode
+#!/wp-content/plugins/wp-maintenance-mode
