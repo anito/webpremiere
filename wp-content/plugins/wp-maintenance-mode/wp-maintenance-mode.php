@@ -6,7 +6,7 @@
  * Plugin Name: WP Maintenance Mode
  * Plugin URI: https://designmodo.com/
  * Description: Adds a splash page to your site that lets visitors know your site is down for maintenance. It's perfect for a coming soon page.
- * Version: 20.2.4
+ * Version: 21.0
  * Author: Designmodo
  * Author URI: https://designmodo.com/
  * Twitter: designmodo
@@ -18,8 +18,9 @@
  * Domain Path: /languages
  */
 // Exit if accessed directly
-if (!defined('ABSPATH'))
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 /**
  * DEFINE PATHS
@@ -48,17 +49,16 @@ define('WPMM_ASSETS_SUFFIX', (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.
 /**
  * FUNCTIONS
  */
-require_once(WPMM_FUNCTIONS_PATH . 'hooks.php');
-require_once(WPMM_FUNCTIONS_PATH . 'helpers.php');
+require_once WPMM_FUNCTIONS_PATH . 'helpers.php';
 if (is_multisite() && !function_exists('is_plugin_active_for_network')) {
-	require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+    require_once ABSPATH . '/wp-admin/includes/plugin.php';
 }
 
 /**
  * FRONTEND
  */
-require_once(WPMM_CLASSES_PATH . 'wp-maintenance-mode-shortcodes.php');
-require_once(WPMM_CLASSES_PATH . 'wp-maintenance-mode.php');
+require_once WPMM_CLASSES_PATH . 'wp-maintenance-mode-shortcodes.php';
+require_once WPMM_CLASSES_PATH . 'wp-maintenance-mode.php';
 register_activation_hook(__FILE__, array('WP_Maintenance_Mode', 'activate'));
 register_deactivation_hook(__FILE__, array('WP_Maintenance_Mode', 'deactivate'));
 
@@ -68,6 +68,6 @@ add_action('plugins_loaded', array('WP_Maintenance_Mode', 'get_instance'));
  * DASHBOARD
  */
 if (is_admin()) {
-	require_once(WPMM_CLASSES_PATH . 'wp-maintenance-mode-admin.php');
-	add_action('plugins_loaded', array('WP_Maintenance_Mode_Admin', 'get_instance'));
+    require_once WPMM_CLASSES_PATH . 'wp-maintenance-mode-admin.php';
+    add_action('plugins_loaded', array('WP_Maintenance_Mode_Admin', 'get_instance'));
 }
