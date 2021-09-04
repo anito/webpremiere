@@ -51,7 +51,6 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: #fff;
   /*background-image: url(images/bg.jpg) !important;*/
   /*background-repeat: no-repeat;*/
   background-size: cover;
@@ -162,7 +161,6 @@ h2 {
 .footer a:visited,
 .footer a:active,
 .footer a:hover {
-  color: #fff;
   text-decoration: none;
 }
 .footer__bg_copyright {
