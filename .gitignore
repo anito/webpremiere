@@ -19,6 +19,7 @@ CVS
 
 /*
 !.gitignore
+!.htaccess
 !README.md
 !/wp-content/
 /wp-content/*
